@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="nofollow,noarchive,noindex">
+  <title>{{ code }}: {{ message }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- {{ if or (eq code 408) (eq code 425) (eq code 429) (eq code 500) (eq code 502) (eq code 503) (eq code 504) }} -->
+  <meta http-equiv="refresh" content="30">
+  <!-- {{ end }} -->
+  <meta name="title" content="{{ code }}: {{ message | escape }}">
+  <meta name="description" content="{{ description | escape }}">
+  <meta property="og:title" content="{{ code }}: {{ message | escape }}">
+  <meta property="og:description" content="{{ description | escape }}">
+  <meta property="twitter:title" content="{{ code }}: {{ message | escape }}">
+  <meta property="twitter:description" content="{{ description | escape }}">
+  <style>
+    :root {
+      --color-primary: #fff;
+      --color-inverted: #202020;
+      --color-sheep: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-primary: #1a1a1a;
+        --color-inverted: #fff;
+        --color-sheep: #eee;
+      }
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      height: 100%;
+      width: 100%;
+      background-color: var(--color-primary);
+      color: var(--color-inverted);
+      font-family: sans-serif;
+      font-size: 16px;
+      word-break: keep-all;
+    }
+
+    @media screen and (min-width: 2000px) {
+      html, body {
+        font-size: 20px;
+      }
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    article {
+      text-align: center;
+      width: 100%;
+    }
+
+    article .sheep {
+      animation: float 3s ease-out infinite;
+    }
+
+    @keyframes float {
+      50% {
+        transform: translate(0, 20px);
+      }
+    }
+
+    article .shadowFrame {
+      width: 130px;
+      margin: 10px auto 0 auto;
+    }
+
+    article .shadowFrame .shadow {
+      animation: shrink 3s ease-out infinite;
+      transform-origin: center center;
+    }
+
+    @keyframes shrink {
+      0% {
+        width: 90%;
+        margin: 0 5%;
+      }
+      50% {
+        width: 60%;
+        margin: 0 18%;
+      }
+      100% {
+        width: 90%;
+        margin: 0 5%;
+      }
+    }
+
+    article h3 {
+      font-size: 1.5em;
+      text-transform: uppercase;
+      margin: 0.3em auto;
+    }
+
+    article .description {
+      font-size: 0.9em;
+      opacity: .9;
+    }
+
+    /* {{ if show_details }} */
+    table.details {
+      table-layout: fixed;
+      width: 100%;
+      opacity: .6;
+    }
+
+    table.details td {
+      white-space: nowrap;
+      font-size: 0.7em;
+    }
+
+    table.details .name,
+    table.details .value {
+      width: 50%;
+    }
+
+    table.details .name::first-letter,
+    table.details .value::first-letter {
+      font-weight: bold;
+    }
+
+    table.details .name {
+      text-align: right;
+      padding-right: .4em;
+      width: 50%;
+    }
+
+    table.details .value {
+      text-align: left;
+      padding-left: .4em;
+      font-family: monospace;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    /* {{ end }} */
+  </style>
+</head>
+<body>
+<article>
+  <svg class="sheep" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="127.433px" height="132.743px"
+       viewBox="0 0 127.433 132.743" xml:space="preserve">
+      <!-- Sheep body (fluffy cloud-like shape) -->
+      <path d="M63.717,25.64c-15.5,0-28.5,6.5-35,18c-2,3.5-3,7.5-3,11.5v45c0,8,4,15,10.5,20c3,2.5,6.5,4.5,10.5,5.5
+               c2,0.5,4,0.75,6,0.75c8,0,15-3.5,20-9c2.5-2.75,4.5-6,5.5-9.5c0.5-1.75,0.75-3.5,0.75-5.25c0-2.5-0.5-5-1.5-7.25
+               c1.5,0.25,3,0.375,4.5,0.375c6,0,11.5-2.25,15.5-6.25c4-4,6.25-9.5,6.25-15.5c0-3-0.625-6-1.75-8.75
+               c2.25-1.5,4.25-3.5,5.75-5.75c3-4.5,4.5-9.75,4.5-15.25c0-7.5-3-14.5-8.5-19.5C97.217,28.14,81.217,25.64,63.717,25.64z"
+            style="fill: var(--color-sheep)"></path>
+      <!-- Sheep head -->
+      <ellipse cx="63.717" cy="45.64" rx="18" ry="15" style="fill: var(--color-sheep)"></ellipse>
+      <!-- Sheep ears -->
+      <ellipse cx="52.717" cy="38.64" rx="4" ry="7" style="fill: var(--color-sheep)" transform="rotate(-25 52.717 38.64)"></ellipse>
+      <ellipse cx="74.717" cy="38.64" rx="4" ry="7" style="fill: var(--color-sheep)" transform="rotate(25 74.717 38.64)"></ellipse>
+      <!-- Sheep eyes -->
+      <circle style="fill: var(--color-primary)" cx="58.717" cy="42.64" r="3"></circle>
+      <circle style="fill: var(--color-primary)" cx="68.717" cy="42.64" r="3"></circle>
+      <!-- Eye pupils -->
+      <circle style="fill: var(--color-inverted)" cx="59.217" cy="42.14" r="1.5"></circle>
+      <circle style="fill: var(--color-inverted)" cx="68.217" cy="42.14" r="1.5"></circle>
+      <!-- Sheep nose -->
+      <ellipse cx="63.717" cy="48.64" rx="2" ry="1.5" style="fill: #ffb6c1"></ellipse>
+      <!-- Sheep legs -->
+      <rect x="48.717" y="115.64" width="4" height="12" style="fill: var(--color-inverted)"></rect>
+      <rect x="56.717" y="115.64" width="4" height="12" style="fill: var(--color-inverted)"></rect>
+      <rect x="66.717" y="115.64" width="4" height="12" style="fill: var(--color-inverted)"></rect>
+      <rect x="74.717" y="115.64" width="4" height="12" style="fill: var(--color-inverted)"></rect>
+      <!-- Fluffy details on body -->
+      <circle cx="45.717" cy="65.64" r="8" style="fill: var(--color-sheep); opacity: 0.8"></circle>
+      <circle cx="35.717" cy="75.64" r="6" style="fill: var(--color-sheep); opacity: 0.8"></circle>
+      <circle cx="82.717" cy="68.64" r="7" style="fill: var(--color-sheep); opacity: 0.8"></circle>
+      <circle cx="92.717" cy="78.64" r="5" style="fill: var(--color-sheep); opacity: 0.8"></circle>
+      <circle cx="63.717" cy="85.64" r="9" style="fill: var(--color-sheep); opacity: 0.8"></circle>
+    </svg>
+
+  <p class="shadowFrame">
+    <svg class="shadow" xmlns="http://www.w3.org/2000/svg" x="61px" y="20px" width="122.436px" height="39.744px"
+         viewBox="0 0 122.436 39.744" xml:space="preserve">
+        <ellipse style="fill: var(--color-sheep); opacity: 0.1" cx="61.128" cy="19.872" rx="49.25" ry="8.916"></ellipse>
+      </svg>
+  </p>
+
+  <h3><span data-l10n>Error</span> {{ code }}</h3>
+  <p class="description" data-l10n>{{ description }}</p>
+
+  <!-- {{- if show_details -}} -->
+  <table class="details">
+    <tbody>
+    <!-- {{- if host -}} -->
+    <tr>
+      <td class="name" data-l10n>Host</td>
+      <td class="value">{{ host }}</td>
+    </tr>
+    <!-- {{- end }}{{ if original_uri -}} -->
+    <tr>
+      <td class="name" data-l10n>Original URI</td>
+      <td class="value">{{ original_uri }}</td>
+    </tr>
+    <!-- {{- end }}{{ if forwarded_for -}} -->
+    <tr>
+      <td class="name" data-l10n>Forwarded for</td>
+      <td class="value">{{ forwarded_for }}</td>
+    </tr>
+    <!-- {{- end }}{{ if namespace -}} -->
+    <tr>
+      <td class="name" data-l10n>Namespace</td>
+      <td class="value">{{ namespace }}</td>
+    </tr>
+    <!-- {{- end }}{{ if ingress_name -}} -->
+    <tr>
+      <td class="name" data-l10n>Ingress name</td>
+      <td class="value">{{ ingress_name }}</td>
+    </tr>
+    <!-- {{- end }}{{ if service_name -}} -->
+    <tr>
+      <td class="name" data-l10n>Service name</td>
+      <td class="value">{{ service_name }}</td>
+    </tr>
+    <!-- {{- end }}{{ if service_port -}} -->
+    <tr>
+      <td class="name" data-l10n>Service port</td>
+      <td class="value">{{ service_port }}</td>
+    </tr>
+    <!-- {{- end }}{{ if request_id -}} -->
+    <tr>
+      <td class="name" data-l10n>Request ID</td>
+      <td class="value">{{ request_id }}</td>
+    </tr>
+    <!-- {{- end -}} -->
+    <tr>
+      <td class="name" data-l10n>Timestamp</td>
+      <td class="value">{{ nowUnix }}</td>
+    </tr>
+    </tbody>
+  </table>
+  <!-- {{- end -}} -->
+</article>
+
+<!-- {{- if l10n_enabled -}} -->
+<script>// {{ l10nScript }}</script>
+<!-- {{- end -}} -->
+</body>
+</html>
