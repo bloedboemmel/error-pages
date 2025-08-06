@@ -928,6 +928,31 @@ If you encounter any bugs in the project, please [create an issue][new-issue] in
 [prs]:https://github.com/tarampampam/error-pages/pulls
 [new-issue]:https://github.com/tarampampam/error-pages/issues/new/choose
 
+## 🔄 Automated Builds
+
+This repository includes GitHub Actions workflows for automated building and publishing:
+
+- **Continuous Integration**: On every push to the `master` branch, the workflow automatically:
+  - Runs tests and linting
+  - Builds multi-architecture Docker images (linux/amd64, linux/arm64)
+  - Publishes images to [GitHub Container Registry][ghcr] as packages
+  - Tags images with branch name, commit SHA, and `latest` for easy access
+
+- **Release Process**: When a release is published, additional artifacts are created including:
+  - Binary files for multiple operating systems and architectures
+  - Pre-built static error pages
+  - Docker images published to both GitHub Container Registry and Docker Hub
+
+To pull the latest automatically built image:
+
+```bash
+docker pull ghcr.io/bloedboemmel/error-pages:latest
+```
+
+All published packages are available in the [GitHub Container Registry][ghcr-packages].
+
+[ghcr-packages]:https://github.com/bloedboemmel/error-pages/pkgs/container/error-pages
+
 ## 📖 License
 
 This is open-sourced software licensed under the [MIT License][license].
